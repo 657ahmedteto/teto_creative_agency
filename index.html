@@ -1,563 +1,136 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teto Creative Agency</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أدوات الذكاء الاصطناعي 2025</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #fff;
-      color: #222;
-      line-height: 1.6;
+      background: linear-gradient(to bottom right, #f0f8ff, #e0eaff);
+      color: #333;
+      padding: 30px;
     }
-
-    header {
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    h1 {
+      text-align: center;
+      color: #0056b3;
     }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      max-width: 1200px;
-      margin: auto;
+    .section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
-    nav img {
-      height: 40px;
+    .section h2 {
+      color: #004080;
+      margin-bottom: 10px;
     }
-
-    nav ul {
-      display: flex;
+    ul {
       list-style: none;
-      gap: 1.5rem;
-      align-items: center;
+      padding: 0;
     }
-
-    nav a {
-      text-decoration: none;
-      color: #3a0ca3;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #f72585;
-    }
-
-    .pray-button {
-      background: #f72585;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      margin-right: 1rem;
-    }
-
-    .btn-box {
-      background: #f3f0ff;
-      border: 1px solid #ddd;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .grid-btns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 0;
-    }
-
-    .grid-btns .btn-box:not(:last-child) {
-      border-left: 2px solid #ddd;
-    }
-
-    .hero {
-      background-color: #f3f0ff;
-      text-align: center;
-      padding: 6rem 2rem;
-      border-radius: 20px;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      color: #3a0ca3;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #555;
-    }
-
-    .hero a {
-      background: #f72585;
-      color: #fff;
-      padding: 0.8rem 1.5rem;
+    ul li {
+      margin-bottom: 8px;
+      padding: 6px 10px;
       border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background-color: #f4f7fc;
+      transition: 0.3s;
     }
-
-    #about-content {
-      display: flex;
-      align-items: flex-start;
-      gap: 2rem;
-      flex-wrap: wrap;
+    ul li:hover {
+      background-color: #d6e4f0;
     }
-
-    #about-content img {
-      max-width: 300px;
-      border-radius: 15px;
-    }
-
-    .form-link {
-      text-align: center;
-      margin: 4rem 0 2rem;
-    }
-
-    .form-link p {
-      margin-bottom: 2rem;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    .form-link a {
-      display: inline-block;
-      background: #f72585;
+    .cta-button {
+      display: block;
+      width: fit-content;
+      margin: 30px auto;
+      padding: 15px 30px;
+      background-color: #0077cc;
       color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 10px;
-      text-decoration: none;
-    }
-
-    .testimonials .btn-box {
-      margin-bottom: 1rem;
-    }
-
-    .gallery {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      padding: 1rem;
-    }
-
-    .gallery img {
-      max-height: 200px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background:#f3f0ff;
-      border-top:1px solid #eee;
-      margin-top:40px;
-    }
-
-    .contact-actions {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .contact-actions a {
-      display: inline-block;
-      background: #3a0ca3;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 10px;
-      text-decoration: none;
-      margin: 0.5rem;
-    }
-
-    .contact-float {
-      position: fixed;
-      top: 50%;
-      right: 20px; /* بدل 0 لدخوله للداخل */
-      transform: translateY(-50%);
-      background: #f00;
-      color: white;
-      padding: 1rem;
-      border-radius: 10px 0 0 10px;
-      z-index: 9999;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
       cursor: pointer;
-    }
-
-    .contact-float:hover .float-menu {
-      display: block;
-    }
-
-    .float-menu {
-      display: none;
-      background: #fff;
-      color: #222;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      position: absolute;
-      right: 100%;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .float-menu a {
-      display: block;
-      color: #222;
-      margin-bottom: 0.5rem;
+      transition: 0.3s;
       text-decoration: none;
     }
-
-    .float-menu a:hover {
-      color: #f72585;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0);}
-      50% { transform: translateY(-10px);}
-    }
-
-    /* اجعل الصور مرنة */
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* تحسين الهيدر والقوائم في الشاشات الصغيرة */
-    @media (max-width: 900px) {
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem 0.5rem;
-      }
-      nav ul {
-        gap: 0.7rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
-
-    /* تحسين كل العناصر للموبايل */
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        padding: 0.5rem;
-      }
-      nav img {
-        height: 32px;
-      }
-      .hero {
-        padding: 2rem 0.5rem;
-        border-radius: 10px;
-      }
-      .hero h1 {
-        font-size: 1.3rem;
-      }
-      .gallery img {
-        max-height: 100px;
-      }
-      .grid-btns {
-        grid-template-columns: 1fr;
-      }
-      #about-content,
-      .about > div[style*="display: flex"] {
-        flex-direction: column !important;
-        gap: 16px !important;
-        align-items: stretch !important;
-      }
-      .btn-box {
-        font-size: 0.98rem;
-        padding: 0.7rem;
-      }
-      section[style*="position:fixed"] {
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100vw !important;
-        justify-content: center !important;
-        padding: 0.5rem 0 !important;
-      }
-      section[style*="position:fixed"] div {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-      }
-      section[style*="position:fixed"] a {
-        padding: 8px 10px !important;
-        font-size: 0.85rem !important;
-        border-radius: 30px !important;
-      }
-      footer {
-        padding: 1rem 0.5rem;
-        font-size: 0.95rem;
-      }
-    }
-
-    /* تحسين عرض الفوتر والأزرار في التابلت */
-    @media (max-width: 768px) {
-      .plans > div {
-        padding: 16px !important;
-      }
-      .plans h2 {
-        font-size: 1.3em !important;
-      }
+    .cta-button:hover {
+      background-color: #005fa3;
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div style="display: flex; align-items: center; gap: 1rem;">
-        <img src="logo.png" alt="Logo" />
-        <div class="azkar-trigger" onclick="document.getElementById('azkarModal').style.display='block'"
-          style="background-color:#3a0ca3;color:white;padding:10px 20px;border-radius:12px;font-weight:bold;cursor:pointer;text-align:center;">
-          🕋 الأذكار على روح بابا أ.حاتم الألفي
-        </div>
-      </div>
-      <ul>
-        <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#about">من نحن</a></li>
-        <li><a href="#services">الخدمات</a></li>
-        <li><a href="#packages">الباقات</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
-      </ul>
-    </nav>
-  </header>
+  <h1>موقع أدوات الذكاء الاصطناعي 2025</h1>
 
-  <!-- 💬 نافذة الأذكار -->
-  <div id="azkarModal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background-color:#fff;border:2px solid #7209b7;padding:30px;z-index:2000;border-radius:16px;width:80%;max-width:600px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
-    <h3 style="color:#3a0ca3;margin-bottom:20px;">🕋 الأذكار على روح بابا أ.حاتم الألفي</h3>
-    <p style="margin-bottom:10px;font-size:1.1em;">🤲 سبحان الله – الحمد لله – لا إله إلا الله – الله أكبر – لا حول ولا قوة إلا بالله</p>
-    <p style="margin-bottom:10px;font-size:1.1em;">💖 اللهم صل وسلم وبارك على سيدنا محمد</p>
-    <button class="close-btn" onclick="document.getElementById('azkarModal').style.display='none'"
-      style="margin-top:20px;background-color:#f72585;color:white;padding:10px 20px;border:none;border-radius:8px;cursor:pointer;">
-      إغلاق
-    </button>
+  <div class="section">
+    <h2>📝 أدوات الكتابة</h2>
+    <ul>
+      <li>ChatGPT - مولد نصوص متطور من OpenAI، يفهم ويكتب بالعربية والإنجليزية باحتراف.</li>
+      <li>Claude - مساعد ذكي من Anthropic، مميز بفهم عميق للنصوص الطويلة والمحادثات.</li>
+      <li>Gemini - أداة Google للذكاء الاصطناعي، بتدمج البحث والكتابة بواجهة سهلة.</li>
+      <li>Jasper AI - أداة تسويقية لكتابة الإعلانات والمحتوى بسرعة وذكاء.</li>
+      <li>Copy.ai - مثالي لكتابة المنشورات والإيميلات والبراندينج للشركات الصغيرة.</li>
+    </ul>
   </div>
 
-  <section class="hero" id="home">
-    <div style="margin-bottom: 18px;">
-      <span style="display:inline-block;background:linear-gradient(90deg,#3a0ca3,#f72585);color:#fff;padding:10px 32px;border-radius:18px;font-size:2rem;font-weight:bold;letter-spacing:1px;box-shadow:0 4px 16px rgba(58,12,163,0.10);">
-        Teto Creative Agency
-      </span>
-    </div>
-    <h1>نُبدع، نُسوّق، نلتقط اللحظات، ونبني الهويات</h1>
-    <a href="https://wa.me/201006505921" target="_blank">تواصل معنا على واتساب</a>
-  </section>
+  <div class="section">
+    <h2>💻 أدوات البرمجة</h2>
+    <ul>
+      <li>GitHub Copilot - مساعد برمجي من GitHub يقترح كود أثناء الكتابة.</li>
+      <li>Codeium - أداة مجانية تدعم لغات برمجة كثيرة وتساعد في تسريع الكود.</li>
+      <li>Tabnine - بيستخدم الذكاء الاصطناعي لتكميل الكود بدقة وسرعة.</li>
+      <li>Replit Ghostwriter - بيشتغل على منصة Replit لكتابة كود تفاعلي فوري.</li>
+      <li>AutoGPT - بيقوم بمهام معقدة بشكل تلقائي من غير تدخل منك، مناسب للأتمتة.</li>
+    </ul>
+  </div>
 
-  <section id="about" class="about" style="text-align: right; background-color: #fffafc; padding: 60px 20px; border-radius: 16px; box-shadow: 0 0 12px rgba(0,0,0,0.05); max-width: 1000px; margin: auto;">
-    <h2 style="color: #3a0ca3; text-align: center;">من نحن؟</h2>
-    <div style="display: flex; flex-direction: row-reverse; flex-wrap: wrap; align-items: center; gap: 30px;">
-      <img src="ahmed.jpg" alt="Ahmed Hatem Elalfy" style="width: 250px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-      <div style="flex: 1;">
-        <p style="font-size: 1.1rem; margin-bottom: 20px;">
-          من طفل بيحب التصميم… لرائد أعمال رقمي.
-          <br><br>
-          اسمي <strong>أحمد حاتم الألفي</strong>، عندي 18 سنة، وبدأت رحلتي في عالم الإبداع من سن صغير جدًا. الشغف اللي جوايا للتصميم والتسويق مكنش لحظة، كان طريق.
-          <br><br>
-          علّمت نفسي كل حاجة من الصفر – من الفوتوشوب للماركتينج، من التصوير للبرمجة. كنت دايمًا بسابق الوقت… عشان أوصل.
-          <br><br>
-          وفي 2025، أطلقت وكالتي <strong>Teto Creative Agency</strong>، واللي بقدم من خلالها خدمات تصميم وتسويق وكتابة محتوى وتصوير، بحب وباحتراف.
-          <br><br>
-          إحنا مش بنشتغل... إحنا بنصنع فرق.
-        </p>
-        <p style="font-size: 1.05rem; color: #444; margin-bottom: 25px;">
-          رسالتي واضحة: أخلي كل براند يشوف نفسه بنظرة مختلفة، وأساعد كل صاحب بيزنس يكون عنده صوت وشكل وهوية مميزة في السوق.
-          <br><br>
-          كل خدمة بنقدمها مبنية على تعب وشغف وتجارب حقيقية، مش مجرد شغل وخلاص.
-        </p>
-        <a class="btn" href="https://wa.me/201006505921" style="background-color:#f72585; color:white; padding:12px 24px; border-radius:12px; text-decoration:none; display:inline-block;">📲 اطلب خدمتك دلوقتي</a>
-      </div>
-    </div>
-  </section>
+  <div class="section">
+    <h2>🎨 توليد الصور</h2>
+    <ul>
+      <li>Midjourney - يولد صور فنية مذهلة من النصوص، مثالي للتصميمات الإبداعية.</li>
+      <li>DALL-E - من OpenAI، ينشئ صور خيالية واقعية من أوصاف بسيطة.</li>
+      <li>Leonardo AI - أداة لتوليد صور عالية الدقة تناسب الفن والألعاب.</li>
+      <li>Adobe Firefly - أداة من أدوبي لتوليد صور وفنون برسومات دقيقة.</li>
+      <li>Craiyon - أداة مجانية وسهلة الاستخدام لرسم الصور من أفكار بسيطة.</li>
+    </ul>
+  </div>
 
-  <section id="services">
-    <h2 class="section-title">الخدمات</h2>
-    <div class="grid-btns">
-      <div class="btn-box">🎨 التصميم الجرافيكي – علمته لنفسي من الصفر من خلال الممارسة اليومية وتحليل أفضل التصميمات.</div>
-      <div class="btn-box">📢 التسويق الإلكتروني – دراسات وتجارب عملية على مشاريع حقيقية علّمتني أسراره.</div>
-      <div class="btn-box">📸 التصوير الفوتوغرافي – بدأت بكاميرا بسيطة وطورت نفسي لحد ما بقيت أصور باحتراف.</div>
-      <div class="btn-box">✍️ كتابة المحتوى – طورت أسلوبي من خلال القراءة والكتابة المستمرة.</div>
-      <div class="btn-box">📱 إدارة صفحات التواصل – خبرة عملية على صفحات متعددة.</div>
-    </div>
-    <a class="btn" href="https://wa.me/201006505921" style="background-color:#f72585; color:white; padding:12px 24px; border-radius:12px; text-decoration:none; display:inline-block; margin-top:24px;">📲 اطلب خدمتك دلوقتي</a>
-  </section>
+  <div class="section">
+    <h2>📹 أدوات الفيديو</h2>
+    <ul>
+      <li>Runway ML - أداة تحرير فيديو بتقنيات الذكاء الاصطناعي، تنشئ مقاطع من نص.</li>
+      <li>Synthesia - تصنع فيديوهات بوجوه افتراضية تحاكي الكلام بشكل طبيعي.</li>
+      <li>Pictory - يحول النصوص لمقاطع فيديو تلقائيًا، مناسب للسوشيال ميديا.</li>
+      <li>Fliki - ينشئ فيديوهات قصيرة بصوت بشري حقيقي من النصوص.</li>
+      <li>Veo - أداة جديدة من جوجل لإنتاج فيديوهات إبداعية بجودة سينمائية.</li>
+    </ul>
+  </div>
 
-  <section id="packages">
-    <!-- تم حذف كلمة الباقات الأولى -->
-    <!-- ...section remains empty... -->
-  </section>
+  <div class="section">
+    <h2>🎵 أدوات الصوت والموسيقى</h2>
+    <ul>
+      <li>ElevenLabs - تحويل النصوص لصوت بشري طبيعي بعدة لغات ولهجات.</li>
+      <li>Play.ht - منصة تحويل النصوص لصوت احترافي للبودكاست والفيديوهات.</li>
+      <li>Suno - يولد موسيقى كاملة بصوت وكلمات من وصف بسيط.</li>
+      <li>Udio - أداة منافسة لـ Suno، تنتج مقاطع موسيقية بجودة عالية.</li>
+      <li>Descript - لتحرير الصوت والفيديو مع نسخ نصي وتعديلات مباشرة.</li>
+    </ul>
+  </div>
 
-  <!-- 💼 صفحة الباقات الجديدة -->
-  <section id="plans" class="plans" style="padding:60px 20px;max-width:1000px;margin:auto;">
-    <h2 style="font-size:2em;margin-bottom:15px;color:#3a0ca3;">الباقات المتوفرة</h2>
-    <div style="background:#fffafc;padding:40px;border-radius:16px;box-shadow:0 0 12px rgba(0,0,0,0.05);">
-      <div style="background:#f8f0ff;border:2px solid #ccc;border-radius:12px;padding:20px;margin-bottom:25px;">
-        <h3 style="color:#7209b7;margin-bottom:10px;">📦 باكدج 1: المبتدئ</h3>
-        <p>✍️ كتابة محتوى فقط</p>
-       
-      </div>
-      <div style="background:#f8f0ff;border:2px solid #ccc;border-radius:12px;padding:20px;margin-bottom:25px;">
-        <h3 style="color:#7209b7;margin-bottom:10px;">📦 باكدج 2: اللعيب</h3>
-        <p>✍️ كتابة محتوى + 15 ريلز منتاج</p>
-       
-      </div>
-      <div style="background:#f8f0ff;border:2px solid #ccc;border-radius:12px;padding:20px;margin-bottom:25px;">
-        <h3 style="color:#7209b7;margin-bottom:10px;">👑 باكدج 3: ملك اللعبة</h3>
-        <p>✍️ كتابة محتوى + إعلان وصول + 15 ريلز</p>
-    
-      </div>
-      <div style="background:#f8f0ff;border:2px solid #ccc;border-radius:12px;padding:20px;margin-bottom:25px;">
-        <h3 style="color:#7209b7;margin-bottom:10px;">📣 باكدجات الإعلانات</h3>
-        <p>باقه اعلانات المبتدئ سعرها علي قد الايد </p>
-        <p>متنساش باقه اللعيب دي تهيئه بس</p>
-        <p>باقه ملك اللعبه الي تهيئك تبقي ملك الاعلانات</p>
-        <p>باقه ملك الاعلانات دي مفيش اعلي منها  </p>
+  <div class="section">
+    <h2>🔍 بحث وتحليل</h2>
+    <ul>
+      <li>Perplexity - محرك بحث ذكي يدمج بين البحث والإجابات التوضيحية.</li>
+      <li>Elicit - مساعد بحث علمي لتحليل الأوراق والإجابات بدقة.</li>
+      <li>Consensus AI - يلخص نتائج الأبحاث العلمية ويوضح التوافق بينها.</li>
+      <li>You.com - محرك بحث تفاعلي بواجهة دردشة مدعومة بالذكاء الاصطناعي.</li>
+      <li>Scite Assistant - أداة تفصيلية لفهم جودة وقوة الدراسات العلمية.</li>
+    </ul>
+  </div>
 
-      </div>
-      <div style="background:#f8f0ff;border:2px solid #ccc;border-radius:12px;padding:20px;margin-bottom:25px;">
-        <h3 style="color:#7209b7;margin-bottom:10px;">🎨 باكدجات التصميم</h3>
-        <p>20تصميم</p>
-        <p>30 تصميم</p>
-        <div style="background:#f8f0ff;border:2px solid #ccc;border-radius:12px;padding:20px;margin-bottom:25px;">
-        <h3 style="color:#7209b7;margin-bottom:10px;">💼 باكدج الموديريتور</h3>
-        <p>🕗 شيفت 8 ساعات </p>
-        <p>🕛 شيفت 12 ساعة</p>
-      </div>
-      <div style="background:#f8f0ff;border:2px solid #ccc;border-radius:12px;padding:20px;margin-bottom:25px;">
-        <h3 style="color:#7209b7;margin-bottom:10px;">📸 باكدج التصوير الفوتوغرافي</h3>
-        <p>🎥 تصوير سينمائي مميز يشمل يوم كامل + مونتاج + ريلز دعائي</p>
-        <p>💰 السعر: 2500 جنيه</p>
-      </div>
-      <div style="background:#f8f0ff;border:2px solid #ccc;border-radius:12px;padding:20px;margin-bottom:25px;">
-        <h3 style="color:#7209b7;margin-bottom:10px;">💻 باكدجات البرمجة</h3>
-        <p>حسب الطلب والتفصيل – تواصل معنا لتحديد السعر المناسب</p>
-      </div>
-      <p style="margin-top: 20px; font-weight: bold; text-align: center;">✨ تقدر تفصل الباكدج بتاعتك مع Teto Marketing وقت ما تحب وزي ما تحب ✨</p>
-    </div>
-  </section>
-
-  <section class="form-link">
-    <p>عايز تبدأ معانا؟ سجل بياناتك وخلي فريقنا يتواصل معاك!</p>
-    <a href="https://noteforms.com/forms/teto-login-access-form-y4c0ze" target="_blank">تسجيل بياناتك للاستفادة من خدماتنا</a>
-  </section>
-
-  <section class="testimonials">
-    <h2 class="section-title">آراء العملاء</h2>
-    <div class="btn-box">"خدمة رائعة جدًا، فريق محترف واستجابة سريعة. أنصح بالتعامل معاهم جدًا!"</div>
-    <div class="btn-box">"اهتمام بالتفاصيل وتنفيذ سريع فوق المتوقع. تجربة ممتازة."</div>
-  </section>
-
-  <section class="gallery">
-    <img src="work1.jpg" alt="عمل 1">
-    <img src="work2.jpg" alt="عمل 2">
-    <img src="work3.jpg" alt="عمل 3">
-    <img src="work4.jpg" alt="عمل 4">
-
-  </section>
-
-  <section id="contact" class="contact">
-    <h2 class="section-title">تواصل معنا</h2>
-    <p>📍 منيا القمح – الشرقية – مصر</p>
-    <div class="contact-actions">
-      <a href="https://wa.me/201006505921" target="_blank">📞 أرسل لي على واتساب</a>
-      <a href="mailto:alalfyahmd042@gmail.com">📧 البريد الإلكتروني</a>
-    </div>
-  </section>
-
-  <footer style="background:#f3f0ff; border-top:1px solid #eee; margin-top:40px;">
-    <!-- وسائل التواصل -->
-    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:18px;">
-      <a href="https://wa.me/201006505921" target="_blank"
-        style="display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#f72585,#3a0ca3);color:#fff;padding:14px 22px;border-radius:50px;font-size:1.1rem;font-weight:bold;box-shadow:0 6px 24px rgba(58,12,163,0.18);text-decoration:none;">
-        <span style="font-size:1.3em;">📞</span> واتساب
-      </a>
-      <a href="https://www.facebook.com/tetoahmd701" target="_blank"
-        style="display:flex;align-items:center;gap:8px;background:#3b5998;color:#fff;padding:14px 22px;border-radius:50px;font-size:1.1rem;font-weight:bold;box-shadow:0 6px 24px rgba(58,12,163,0.18);text-decoration:none;">
-        <span style="font-size:1.3em;">&#x1F426;</span> فيسبوك
-      </a>
-      <a href="https://www.instagram.com/tetoahmd701" target="_blank"
-        style="display:flex;align-items:center;gap:8px;background:#E1306C;color:#fff;padding:14px 22px;border-radius:50px;font-size:1.1rem;font-weight:bold;box-shadow:0 6px 24px rgba(58,12,163,0.18);text-decoration:none;">
-        <span style="font-size:1.3em;">&#x1F33A;</span> انستجرام
-      </a>
-      <a href="mailto:alalfyahmf042@gmail.com"
-        style="display:flex;align-items:center;gap:8px;background:#7209b7;color:#fff;padding:14px 22px;border-radius:50px;font-size:1.1rem;font-weight:bold;box-shadow:0 6px 24px rgba(58,12,163,0.18);text-decoration:none;">
-        <span style="font-size:1.3em;">&#x2709;&#xFE0F;</span> إيميل
-      </a>
-    </div>
-    <!-- فاصل وعنوان للمواقع -->
-    <div style="max-width:340px;margin:18px auto 8px;">
-      <hr style="border:none;border-top:2px dashed #ccc;margin:0 0 8px 0;">
-      <div style="color:#3a0ca3;font-weight:bold;font-size:1.05em;margin-bottom:8px;">روابط مواقعنا وخدماتنا</div>
-    </div>
-    <!-- روابط المواقع -->
-    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
-      <a href="mwaqe3.html"
-        style="display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#3a0ca3,#f72585);color:#fff;padding:12px 18px;border-radius:50px;font-size:0.95rem;font-weight:bold;box-shadow:0 6px 24px rgba(58,12,163,0.18);text-decoration:none;">
-        🌐 مواقع تهمك
-      </a>
-      <a href="courses.html"
-        style="display:flex;align-items:center;gap:8px;background:#3a0ca3;color:#fff;padding:12px 18px;border-radius:50px;font-size:0.95rem;font-weight:bold;box-shadow:0 6px 24px rgba(58,12,163,0.18);text-decoration:none;">
-        🎓مقالات هامه هتفيدك لو حابب تتعلم
-      </a>
-      <a href="files.html"
-        style="display:flex;align-items:center;gap:8px;background:#f72585;color:#fff;padding:12px 18px;border-radius:50px;font-size:0.95rem;font-weight:bold;box-shadow:0 6px 24px rgba(58,12,163,0.18);text-decoration:none;">
-        📁 ملفات تفيدك
-      </a>
-      <a href="startup.html"
-        style="display:flex;align-items:center;gap:8px;background:#7209b7;color:#fff;padding:12px 18px;border-radius:50px;font-size:0.95rem;font-weight:bold;box-shadow:0 6px 24px rgba(58,12,163,0.18);text-decoration:none;">
-        🚀 كيف تبدأ مشروع بدون رأس مال
-      </a>
-      <a href="gpt-commands.html"
-        style="display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#f72585,#3a0ca3);color:#fff;padding:12px 18px;border-radius:50px;font-size:0.95rem;font-weight:bold;box-shadow:0 6px 24px rgba(58,12,163,0.18);text-decoration:none;">
-        🤖 أوامر ChatGPT الجاهزة
-      </a>
-    </div>
-    <p style="font-size:1.1em;color:#3a0ca3;font-weight:bold;margin:0;padding:12px 0 8px 0;letter-spacing:1px;">
-      © 2025 - كل الحقوق محفوظة لدى <span style="color:#f72585;">Teto Creative Agency</span>
-    </p>
-  </footer>
-<script>
-window.addEventListener('mouseover', initLandbot, { once: true });
-window.addEventListener('touchstart', initLandbot, { once: true });
-var myLandbot;
-function initLandbot() {
-  if (!myLandbot) {
-    var s = document.createElement('script');
-    s.type = "module"
-    s.async = true;
-    s.addEventListener('load', function() {
-      var myLandbot = new Landbot.Livechat({
-        configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3009222-7OZDZGQWLYTY3VW4/index.json',
-      });
-    });
-    s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
-    var x = document.getElementsByTagName('script')[0];
-    x.parentNode.insertBefore(s, x);
-  }
-}
-</script>
+  <a href="https://657ahmedteto.github.io/teto_creative_agency/" class="cta-button">ابدأ رحلتك مع الذكاء الاصطناعي</a>
+<footer style="text-align:center; margin-top:40px; font-size:14px; color:#666;">
+  &copy; 2025 جميع الحقوق محفوظة - Teto Creative Agency
+</footer>
 </body>
 </html>
