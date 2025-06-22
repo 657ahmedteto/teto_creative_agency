@@ -1,97 +1,158 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>Teto Creative Agency files</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 40px auto 20px auto;
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-            padding: 32px 24px;
-        }
-        h1 {
-            color: #ff6f61;
-            margin-bottom: 16px;
-            text-align: center;
-            font-size: 2.2em;
-            letter-spacing: 1px;
-        }
-        ul.files-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        ul.files-list li {
-            background: #f5f5f5;
-            margin-bottom: 14px;
-            border-radius: 10px;
-            padding: 14px 18px;
-            display: flex;
-            align-items: center;
-            transition: box-shadow 0.2s;
-        }
-        ul.files-list li:hover {
-            box-shadow: 0 2px 8px rgba(255,111,97,0.15);
-        }
-        .file-icon {
-            color: #ff6f61;
-            margin-left: 14px;
-            font-size: 1.5em;
-        }
-        .file-link {
-            text-decoration: none;
-            color: #222;
-            font-size: 1.1em;
-            flex: 1;
-            transition: color 0.2s;
-        }
-        .file-link:hover {
-            color: #ff6f61;
-        }
-        footer {
-            text-align: center;
-            margin-top: 24px;
-            color: #888;
-            font-size: 1em;
-            letter-spacing: 0.5px;
-        }
-    </style>
-    <!-- يمكنك استخدام أيقونات Font Awesome مجانًا -->
-    <script src="https://kit.fontawesome.com/8a2e8a12d4.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>مكتبة Teto PDF</title>
+  <style>
+    body {
+      background-color: #f6f5fb;
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      direction: rtl;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 30px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      color: #3b1aa7;
+      font-size: 28px;
+    }
+
+    .back-link {
+      text-decoration: none;
+      background-color: #3b1aa7;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .back-link:hover {
+      background-color: #2c2462;
+    }
+
+    .search-box {
+      margin: 20px auto 40px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .search-box input {
+      padding: 12px;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pdf-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .pdf-card:hover {
+      transform: scale(1.02);
+    }
+
+    iframe {
+      width: 100%;
+      height: 420px;
+      border: none;
+    }
+
+    .pdf-title {
+      padding: 15px;
+      background: #e5dbeb;
+      text-align: center;
+      font-weight: bold;
+      color: #5d50c1;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ملفات موقع Teto Creative Agency</h1>
-        <ul class="files-list">
-            <li>
-                <span class="file-icon"><i class="fas fa-file-pdf"></i></span>
-                <a class="file-link" href="file1.pdf" download>ملف تعريفي للشركة (PDF)</a>
-            </li>
-            <li>
-                <span class="file-icon"><i class="fas fa-file-image"></i></span>
-                <a class="file-link" href="logo.png" download>logo.png</a>
-            </li>
-            <li>
-                <span class="file-icon"><i class="fas fa-file-word"></i></span>
-                <a class="file-link" href="profile.docx" download>بروفايل الشركة (Word)</a>
-            </li>
-            <!-- أضف المزيد من الملفات هنا -->
-        </ul>
+
+  <header>
+    <h1>📚 مكتبة ملفات Teto - قراءة فقط</h1>
+    <a class="back-link" href="https://657ahmedteto.github.io/teto_creative_agency/">🏠 الرجوع للصفحة الرئيسية</a>
+  </header>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="ابحث باسم الملف...">
+  </div>
+
+  <div class="container" id="pdfContainer">
+
+    <div class="pdf-card" data-title="اسم الملف الأول">
+      <iframe src="files/file1.pdf"></iframe>
+      <div class="pdf-title">اسم الملف الأول</div>
     </div>
-    <footer>
-      © 2025 - كل الحقوق محفوظة لدى Teto Creative Agency
-    </footer>
+
+    <div class="pdf-card" data-title="اسم الملف التاني">
+      <iframe src="files/file2.pdf"></iframe>
+      <div class="pdf-title">اسم الملف التاني</div>
+    </div>
+
+    <div class="pdf-card" data-title="اسم الملف التالت">
+      <iframe src="files/file3.pdf"></iframe>
+      <div class="pdf-title">اسم الملف التالت</div>
+    </div>
+
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.pdf-card');
+
+    searchInput.addEventListener('input', function () {
+      const search = this.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        card.style.display = title.includes(search) ? 'block' : 'none';
+      });
+    });
+  </script>
+<script>
+window.addEventListener('mouseover', initLandbot, { once: true });
+window.addEventListener('touchstart', initLandbot, { once: true });
+var myLandbot;
+function initLandbot() {
+  if (!myLandbot) {
+    var s = document.createElement('script');
+    s.type = "module"
+    s.async = true;
+    s.addEventListener('load', function() {
+      var myLandbot = new Landbot.Livechat({
+        configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3009222-7OZDZGQWLYTY3VW4/index.json',
+      });
+    });
+    s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+  }
+}
+</script>
+
 </body>
 </html>
