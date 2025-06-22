@@ -107,12 +107,6 @@
       color: white;
     }
 
-    iframe {
-      width: 100%;
-      height: 420px;
-      border: none;
-    }
-
     .pdf-title {
       padding: 15px;
       background: #e5dbeb;
@@ -125,12 +119,28 @@
       background-color: #3b1aa7;
       color: #f6f5fb;
     }
+
+    /* زر التحميل */
+    .download-btn {
+      display: block;
+      background: #3b1aa7;
+      color: white;
+      text-align: center;
+      padding: 18px 0;
+      border-radius: 0 0 20px 20px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .download-btn:hover {
+      background: #2c2462;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>📚 مكتبة Teto - قراءة فقط</h1>
+    <h1>📚 مكتبة Teto - تحميل فقط</h1>
     <div>
       <a class="back-link" href="https://657ahmedteto.github.io/teto_creative_agency/">🏠 الصفحة الرئيسية</a>
       <button class="toggle-mode" onclick="toggleDarkMode()">🌓 تبديل الوضع</button>
@@ -145,60 +155,60 @@
 
   <script>
   const pdfList = [
-  "أسرار وخفايا التسويق_الذكي.pdf",
-  "المجتمع الشكّي - دارن بارني.pdf",
-  "مبادئ التسويق الحديث.pdf",
-  "التسويق الابتكاري.pdf",
-  "كتاب التسويق للجميع.pdf", 
-  "خطة تسويق في صفحة واحدة - الين ديب.pdf",
-  "إدارة التسويق بدون نتائج.pdf", 
-  "التسويق_النفسي.pdf",
-  "التسويق_والتحليل_النفسي.pdf",
-  "تسويق.pdf",
-  "التسويق_الأخضر.pdf",
-  "قوة_الإقناع.pdf"
-];
+    "أسرار وخفايا التسويق_الذكي.pdf",
+    "المجتمع الشكّي - دارن بارني.pdf",
+    "مبادئ التسويق الحديث.pdf",
+    "التسويق الابتكاري.pdf",
+    "كتاب التسويق للجميع.pdf", 
+    "خطة تسويق في صفحة واحدة - الين ديب.pdf",
+    "إدارة التسويق بدون نتائج.pdf", 
+    "التسويق_النفسي.pdf",
+    "التسويق_والتحليل_النفسي.pdf",
+    "تسويق.pdf",
+    "التسويق_الأخضر.pdf",
+    "قوة_الإقناع.pdf"
+  ];
 
-    const container = document.getElementById('pdfContainer');
+  const container = document.getElementById('pdfContainer');
 
-    pdfList.forEach((filename) => {
-      const cleanTitle = filename
-        .replace(/_/g, ' ')
-        .replace(/.pdf$/i, '')
-        .trim();
+  pdfList.forEach((filename) => {
+    const cleanTitle = filename
+      .replace(/_/g, ' ')
+      .replace(/.pdf$/i, '')
+      .trim();
 
-      const card = document.createElement('div');
-      card.className = 'pdf-card';
-      card.dataset.title = cleanTitle.toLowerCase();
+    const card = document.createElement('div');
+    card.className = 'pdf-card';
+    card.dataset.title = cleanTitle.toLowerCase();
 
-      card.innerHTML = `
-        <iframe src="files/${filename}"></iframe>
-        <div class="pdf-title">${cleanTitle}</div>
-      `;
+    card.innerHTML = `
+      <a href="files/${filename}" download class="download-btn">⬇️ تحميل الملف</a>
+      <div class="pdf-title">${cleanTitle}</div>
+    `;
 
-      container.appendChild(card);
+    container.appendChild(card);
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', function () {
+    const search = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.pdf-card');
+    cards.forEach(card => {
+      const title = card.dataset.title;
+      card.style.display = title.includes(search) ? 'block' : 'none';
     });
+  });
 
-    const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('input', function () {
-      const search = this.value.toLowerCase();
-      const cards = document.querySelectorAll('.pdf-card');
-      cards.forEach(card => {
-        const title = card.dataset.title;
-        card.style.display = title.includes(search) ? 'block' : 'none';
-      });
-    });
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem('darkMode', document.body.classList.contains("dark-mode"));
+  }
 
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-      localStorage.setItem('darkMode', document.body.classList.contains("dark-mode"));
+  window.onload = function () {
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add("dark-mode");
     }
-
-    window.onload = function () {
-      if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add("dark-mode");
-      }
-    }
+  }
   </script>
   <script>
 window.addEventListener('mouseover', initLandbot, { once: true });
