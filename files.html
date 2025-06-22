@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>مكتبة Teto PDF</title>
-       <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     body {
       background-color: #f6f5fb;
@@ -145,24 +144,30 @@
   <div class="container" id="pdfContainer"></div>
 
   <script>
+    // 📚 هنا بتكتب بس أسماء الملفات من غير عناوين
     const pdfList = [
-      { file: "1-marketing.pdf", title: "1 - مبادئ التسويق الحديث" },
-      { file: "2-psychology.pdf", title: "2 - علم النفس في الإقناع" },
-      { file: "3-ads.pdf", title: "3 - الإعلانات الناجحة" },
-      { file: "4-sales.pdf", title: "4 - فن البيع الذكي" },
-      { file: "5-customer.pdf", title: "5 - رحلة العميل" }
+      "التسويق_العاطفي.pdf",
+      "علم_نفس_المشتري.pdf",
+      "رحلة_العميل.pdf",
+      "مبادئ_التسويق.pdf",
+      "قوة_الإقناع.pdf"
     ];
 
     const container = document.getElementById('pdfContainer');
 
-    pdfList.forEach((pdf) => {
+    pdfList.forEach((filename) => {
+      const cleanTitle = filename
+        .replace(/_/g, ' ')
+        .replace(/.pdf$/i, '')
+        .trim();
+
       const card = document.createElement('div');
       card.className = 'pdf-card';
-      card.dataset.title = pdf.title.toLowerCase();
+      card.dataset.title = cleanTitle.toLowerCase();
 
       card.innerHTML = `
-        <iframe src="files/${pdf.file}"></iframe>
-        <div class="pdf-title">${pdf.title}</div>
+        <iframe src="files/${filename}"></iframe>
+        <div class="pdf-title">${cleanTitle}</div>
       `;
 
       container.appendChild(card);
