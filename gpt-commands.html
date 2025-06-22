@@ -1,51 +1,179 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>أوامر ChatGPT | Teto Creative Agency</title>
+  <meta charset="UTF-8">
+  <title>برومبتات مع زر نسخ</title>
   <style>
-    body { font-family: 'Cairo', sans-serif; background: #f8f7fa; color: #222; padding: 30px; }
-    .container { max-width: 600px; margin: auto; background: #fff; border-radius: 14px; box-shadow: 0 2px 12px #0001; padding: 2rem; }
-    h2 { color: #3a0ca3; }
-    .command { background: #f3f0ff; margin: 12px 0; padding: 10px 14px; border-radius: 8px; }
-    .effect { color: #f72585; font-size: 0.98rem; margin-top: 4px; }
-    input[type="file"] { margin-bottom: 18px; }
+    body { font-family: 'Cairo', Arial, sans-serif; background: #f7f7f7; }
+    .prompt-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 10px auto;
+      padding: 16px 12px;
+      max-width: 600px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px #0001;
+    }
+    .prompt-text { font-size: 1.1em; }
+    .copy-btn {
+      background: #0078d4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 18px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s;
+    }
+    .copy-btn:active { background: #005fa3; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>رفع ملف أوامر ChatGPT</h2>
-    <input type="file" id="fileInput" accept=".txt" />
-    <div id="commandsList"></div>
-  </div>
-  <script>
-    // دالة بسيطة لتخمين تأثير الأمر (يمكنك تطويرها حسب الحاجة)
-    function guessEffect(command) {
-      if (command.includes("translate")) return "سيتم ترجمة النص.";
-      if (command.includes("summarize")) return "سيتم تلخيص النص.";
-      if (command.includes("code")) return "سيتم توليد كود برمجي.";
-      if (command.includes("image")) return "سيتم توليد صورة.";
-      if (command.includes("write")) return "سيتم كتابة نص جديد.";
-      if (command.includes("explain")) return "سيتم شرح أو توضيح.";
-      return "سيتم تنفيذ الأمر حسب محتواه.";
-    }
+  <h2 style="text-align:center;">برومبتات جاهزة للنسخ</h2>
 
-    document.getElementById('fileInput').addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(evt) {
-        const lines = evt.target.result.split(/\r?\n/).filter(Boolean);
-        const list = lines.map(cmd => `
-          <div class="command">
-            <b>${cmd}</b>
-            <div class="effect">${guessEffect(cmd.toLowerCase())}</div>
-          </div>
-        `).join('');
-        document.getElementById('commandsList').innerHTML = list || "<div>لا توجد أوامر في الملف.</div>";
-      };
-      reader.readAsText(file, "UTF-8");
-    });
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يُعلّم المبتدئين كيفية كتابة برومبتات أفضل.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">صمّم برومبت يُنتج 10 أفكار مشاريع في أقل من 100 كلمة.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">اكتب برومبت يشرح موضوعًا ما بمستوى مبسّط واحترافي في آن واحد.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box"></div>
+    <span class="prompt-text">أنشئ برومبت يجعل الذكاء الاصطناعي يؤدي دور مدير توظيف.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">اكتب برومبت يُنتج تحليل SWOT لفكرة شركة ناشئة.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يقدّم ملاحظات على ملف LinkedIn.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">طور برومبت يُعيد صياغة رسائل المبيعات بثلاث نغمات مختلفة.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يشرح مفاهيم علم البيانات المعقدة للأطفال.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يُنشئ قائمة مرجعية لبدء متجر إلكتروني عبر Shopify.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">اكتب برومبت يقدم دليلاً مفصلاً حول قوالب Notion.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يُحاكي مقابلة قبول جامعية.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">طور برومبت يحدد نقاط الضعف في مسار تسويق إلكتروني.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">صمّم برومبت يُنتج دعوة رسمية عبر البريد الإلكتروني لحضور فعالية.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">اكتب برومبت يربط بين ثلاث مخرجات للذكاء الاصطناعي ضمن سير عمل واحد.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يجعل الذكاء الاصطناعي يلعب دور الخبير والمبتدئ معًا.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يُحسّن أي برومبت أصلي يكتبه المستخدم.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">طور برومبت يجبر الذكاء الاصطناعي على طرح أسئلة قبل إعطاء الإجابة.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يولّد حجتين متضادتين حول أي موضوع.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يُحاكي نص مكالمة تدريبية مدتها 30 دقيقة.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">اكتب برومبت يبني قسمًا للأسئلة الشائعة بناءً على وصف المنتج.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يقدم استراتيجيات تفاوض لعقد عمل حر.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">طور برومبت يعيد صياغة السير الذاتية لتناسب مجالات متعددة.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يُحلل نصوص فيديوهات يوتيوب ناجحة.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يختبر قدرة الذكاء الاصطناعي على اكتشاف المغالطات المنطقية.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">اكتب برومبت يتحدى الذكاء الاصطناعي بحل لغز بسيط ثم معقد.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يجبر الذكاء الاصطناعي على التفكير خطوة بخطوة.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">طور برومبت يطلب 3 اتجاهات إبداعية مختلفة لمشروع ما.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يُطلب فيه من الذكاء الاصطناعي اقتراح اسم مشروع وشعاره.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يحدد الثغرات في مخطط تدوينة.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">اكتب برومبت يُنتج تقويم محتوى لمدة 30 يوماً في أي مجال.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يُحاكي عرضاً تقديمياً أمام مستثمرين.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">طور برومبت يستخدم أسلوب "التفكير من المبادئ الأولى".</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+  <div class="prompt-box">
+    <span class="prompt-text">أنشئ برومبت يصمم منهجاً شخصياً لتعلم مهارة جديدة.</span>
+    <button class="copy-btn" onclick="copyPrompt(this)">نسخ</button>
+  </div>
+
+  <script>
+    function copyPrompt(btn) {
+      const text = btn.parentElement.querySelector('.prompt-text').innerText;
+      navigator.clipboard.writeText(text);
+      btn.innerText = 'تم النسخ!';
+      setTimeout(() => btn.innerText = 'نسخ', 1200);
+    }
   </script>
 </body>
 </html>
