@@ -241,6 +241,19 @@
       height: auto;
       display: block;
     }
+body {
+  background: url('bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* أو أي لون تحبه */
+  z-index: -1;
+}
+
+
 
     /* تحسين الهيدر والقوائم في الشاشات الصغيرة */
     @media (max-width: 900px) {
